@@ -27,14 +27,11 @@ func main() {
 	var err error
 	if isEnglish {
 		result, err = EnglishToBrailleTranslator(input)
-		if err != nil {
-			log.Fatal(err)
-		}
 	} else {
 		result, err = BrailleToEnglishTranslator(input)
-		if err != nil {
-			log.Fatal(err)
-		}
+	}
+	if err != nil {
+		log.Fatal(err)
 	}
 	fmt.Println(result)
 }
