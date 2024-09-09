@@ -51,6 +51,8 @@ func IsEnglish(input string) bool {
 	return false
 }
 
+// EnglishToBrailleTranslator is a function that returns a converted Braille string from an English string
+// As per Readme, only handles characters and numbers not including decimal and special symbols
 func EnglishToBrailleTranslator(input string) (string, error) {
 	lookup := GetEnglishToBrailleLookup()
 	var result strings.Builder
@@ -85,6 +87,8 @@ func EnglishToBrailleTranslator(input string) (string, error) {
 	return result.String(), nil
 }
 
+// BrailleToEnglishTranslator is a function that returns a converted English string from a Braille string
+// As per Readme, only handles characters and numbers not including decimal and special symbols
 func BrailleToEnglishTranslator(input string) (string, error) {
 	characterLookup, digitLookup := GetBrailleToEnglishLookup()
 	var result strings.Builder
