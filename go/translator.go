@@ -26,9 +26,9 @@ func main() {
 	var result string
 	var err error
 	if isEnglish {
-		result, err = EnglishToBrailleTranslator(input)
+		result, err = EnglishToBraille(input)
 	} else {
-		result, err = BrailleToEnglishTranslator(input)
+		result, err = BrailleToEnglish(input)
 	}
 	if err != nil {
 		log.Fatal(err)
@@ -51,9 +51,9 @@ func IsEnglish(input string) bool {
 	return false
 }
 
-// EnglishToBrailleTranslator is a function that returns a converted Braille string from an English string
+// EnglishToBraille is a function that returns a converted Braille string from an English string
 // As per Readme, only handles characters and numbers not including decimal and special symbols
-func EnglishToBrailleTranslator(input string) (string, error) {
+func EnglishToBraille(input string) (string, error) {
 	lookup := GetEnglishToBrailleLookup()
 	var result strings.Builder
 	for i := 0; i < len(input); i++ {
@@ -87,9 +87,9 @@ func EnglishToBrailleTranslator(input string) (string, error) {
 	return result.String(), nil
 }
 
-// BrailleToEnglishTranslator is a function that returns a converted English string from a Braille string
+// BrailleToEnglish is a function that returns a converted English string from a Braille string
 // As per Readme, only handles characters and numbers not including decimal and special symbols
-func BrailleToEnglishTranslator(input string) (string, error) {
+func BrailleToEnglish(input string) (string, error) {
 	characterLookup, digitLookup := GetBrailleToEnglishLookup()
 	var result strings.Builder
 	if len(input)%6 != 0 {
